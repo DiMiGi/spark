@@ -153,7 +153,7 @@ if (token) {
 
 window.ProcessMaker.apiClient.defaults.baseURL = "/api/1.0/";
 // Default to a 5 second timeout, which is an eternity in web app terms
-window.ProcessMaker.apiClient.defaults.timeout = 15000; // was 5000, increased for poor local computer performance
+window.ProcessMaker.apiClient.defaults.timeout = 5000;
 
 // Default alert functionality
 window.ProcessMaker.alert = function (text, variant) {
