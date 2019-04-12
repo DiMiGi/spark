@@ -14,6 +14,7 @@ import FormButton from "@processmaker/spark-screen-builder/src/components/render
 import FormRecordList from "@processmaker/spark-screen-builder/src/components/renderer/form-record-list";
 import FileUpload from "../../processes/screen-builder/components/form/file-upload";
 import FileDownload from "../../processes/screen-builder/components/file-download";
+import DateTimePicker from "../../processes/screen-builder/components/form/date-time";
 
 import {
   FormInput,
@@ -38,6 +39,7 @@ Vue.component("MultiColumn", MultiColumn);
 Vue.component("FormMultiColumn", FormMultiColumn);
 Vue.component("FormDatePicker", FormDatePicker);
 Vue.component("FormRecordList", FormRecordList);
+Vue.component('DateTimePicker', DateTimePicker);
 
 export default {
   components: {
