@@ -181,7 +181,7 @@ export default {
       ProcessMaker.apiClient
         .put("scripts/" + this.dupScript.id + "/duplicate", this.dupScript)
         .then(response => {
-          ProcessMaker.alert($t('The script was duplicated.'), "success");
+          ProcessMaker.alert(this.$t('The script was duplicated.'), "success");
           this.hideModal();
           this.fetch();
         })

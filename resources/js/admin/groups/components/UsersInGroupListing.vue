@@ -111,7 +111,7 @@
             ProcessMaker.apiClient
               .delete("group_members/" + data.id)
               .then(response => {
-                ProcessMaker.alert($t("The user was removed from the group."), "success");
+                ProcessMaker.alert(this.$t("The user was removed from the group."), "success");
                 that.fetch();
               });
           }

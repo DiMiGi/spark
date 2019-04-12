@@ -146,7 +146,7 @@ export default {
               ProcessMaker.apiClient
                 .delete("users/" + data.id)
                 .then(response => {
-                  ProcessMaker.alert($t("The user was deleted."), "danger");
+                  ProcessMaker.alert(this.$t("The user was deleted."), "danger");
                   this.$emit("reload");
                 });
             }

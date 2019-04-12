@@ -117,7 +117,7 @@ export default {
           ProcessMaker.apiClient
             .delete("/oauth/clients/" + item.id, { baseURL: "/" })
             .then(() => {
-              ProcessMaker.alert($t('The auth client was deleted.'), 'success');
+              ProcessMaker.alert(this.$t('The auth client was deleted.'), 'success');
               this.fetch();
             });
         }
