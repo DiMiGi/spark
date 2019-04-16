@@ -117,21 +117,23 @@ window.ProcessMaker.apiClient.interceptors.response.use((response) => {
     // response.config.url (extract resource name)
     return response;
 }, (error) => {
-    switch (error.response.status) {
-        case 401:
-            window.location = "/login"
-            break;
-    }
+    if (error.response) {
+      switch (error.response.status) {
+          case 401:
+              window.location = "/login"
+              break;
+      }
+    }    
     return Promise.reject(error);
 });
 
 // Display any uncaught promise rejections from axios in the Process Maker alert box
 window.addEventListener('unhandledrejection', function (event) {
     let error = event.reason;
-    if (error.config._defaultErrorShown) {
+    if (error.config && error.config._defaultErrorShown) {
         // Already handeled
         event.preventDefault(); // stops the unhandled rejection error
-    } else if (error.response.data && error.response.data.message) {
+    } else if (error.response && error.response.data && error.response.data.message) {
         window.ProcessMaker.alert(error.response.data.message, "danger");
     } else if (error.message) {
         window.ProcessMaker.alert(error.message, "danger");

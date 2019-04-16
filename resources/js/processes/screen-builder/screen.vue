@@ -278,7 +278,7 @@
               if (exportScreen) {
                 this.exportScreen();
               }
-              ProcessMaker.alert(this.$t(" Successfully saved"), "success");
+              ProcessMaker.alert(this.$t("Successfully saved"), "success");
             });
         }
       }

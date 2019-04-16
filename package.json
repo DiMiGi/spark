@@ -71,6 +71,7 @@
     "jointjs": "^2.1.4",
     "laravel-echo": "^1.4.0",
     "laravel-echo-server": "^1.3.8",
+    "luxon": "^1.12.1",
     "monaco-editor": "^0.15.6",
     "monaco-editor-webpack-plugin": "^1.7.0",
     "npm": "^6.7.0",
@@ -85,6 +86,7 @@
     "tooltip.js": "^1.2.0",
     "v-tooltip": "^2.0.0-rc.33",
     "vue-croppie": "^1.3.12",
+    "vue-datetime": "^1.0.0-beta.10",
     "vue-deepset": "^0.6.3",
     "vue-events": "^3.1.0",
     "vue-json-pretty": "^1.4.1-beta.1",
@@ -97,6 +99,7 @@
     "vue-template-compiler": "^2.5.17",
     "vuetable-2": "^1.7.5",
     "webpack": "^3.11.0",
+    "weekstart": "^1.0.0",
     "xml-js": "^1.6.7"
   },
   "jest": {
