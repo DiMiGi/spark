@@ -22,6 +22,7 @@
   "require": {
     "php": ">=7.2.0",
     "TYPO3/class-alias-loader": "^1.0",
+    "adldap2/adldap2-laravel": "^6.0",
     "darkaonline/l5-swagger": "5.7.*",
     "doctrine/dbal": "^2.5",
     "fideloper/proxy": "^4.0",

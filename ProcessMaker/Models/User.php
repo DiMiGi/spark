@@ -95,6 +95,7 @@ class User extends Authenticatable implements HasMedia
 
     protected $guarded = [
         'id',
+        'objectguid',
         'created_at',
         'updated_at',
     ];
@@ -123,8 +124,10 @@ class User extends Authenticatable implements HasMedia
     {
         $unique = Rule::unique('users')->ignore($existing);
 
+        $alpha_dash_period = '/^[a-zA-Z0-9\_\-\.]+$/';
+
         return [
-            'username' => ['required', 'alpha_dash', 'min:4', 'max:255' , $unique],
+            'username' => ['required', 'regex: '.$alpha_dash_period, 'min:4', 'max:255' , $unique],
             'email' => ['required', 'email', $unique],
             'status' => ['required', 'in:ACTIVE,INACTIVE'],
             'password' => 'required|sometimes|min:6'
@@ -190,7 +193,7 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->morphMany(GroupMember::class, 'member', null, 'member_id');
     }
-    
+
     public function groups()
     {
         return $this->morphToMany('ProcessMaker\Models\Group', 'member', 'group_members');
@@ -233,7 +236,7 @@ class User extends Authenticatable implements HasMedia
      * cause errors from time to time.
      *
      * @return string
-     */    
+     */
     public function setAvatarAttribute($value = null)
     {
         if ($value) {
