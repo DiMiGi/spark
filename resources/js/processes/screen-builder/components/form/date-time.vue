@@ -124,8 +124,8 @@ export default {
       type: Object,
       default () {
         return {
-          cancel: 'Cancel',
-          ok: 'Ok'
+          cancel: this.$t('Cancel'),
+          ok: this.$t('Ok')
         }
       }
     },
