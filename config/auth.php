@@ -53,10 +53,11 @@ return [
     | sources which represent each model / table. These sources may then
     | be assigned to any extra authentication guards you have defined.
     |
+    | DRIVER_USER_PROVIDER -> can be eloquent or ldap
     */
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
+            'driver' => env('DRIVER_USER_PROVIDER','eloquent'),
             'model' => ProcessMaker\Models\User::class
         ]
     ],
