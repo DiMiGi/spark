@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="form-group">
-      <label>{{ $t('Due In') }}</label>
+      <label>{{ this.$t('Due In') }}</label>
       <input
         class="form-control"
         type="number"
@@ -11,47 +11,47 @@
         min="0"
         v-on:keydown="dueInValidate"
       >
-      <small class="form-text text-muted">{{ $t('Time when the task will due (hours)') }}</small>
+      <small class="form-text text-muted">{{ this.$t('Time when the task will due (hours)') }}</small>
     </div>
 
     <div class="form-group">
-      <label>{{ $t('Task Assignment') }}</label>
+      <label>{{ this.$t('Task Assignment') }}</label>
       <select
         ref="assignmentsDropDownList"
         class="form-control"
         :value="assignmentGetter"
         @input="assignmentSetter"
       >
-                <option value="requester">{{ $t('Requester') }}</option>
-                <option value="user">{{ $t('User') }}</option>
-                <option value="group">{{ $t('Group') }}</option>
-                <option value="previous_task_assignee">{{ $t('Previous Task Assignee') }}</option>
+                <option value="requester">{{ this.$t('Requester') }}</option>
+                <option value="user">{{ this.$t('User') }}</option>
+                <option value="group">{{ this.$t('Group') }}</option>
+                <option value="previous_task_assignee">{{ this.$t('Previous Task Assignee') }}</option>
             </select>
         </div>
 
     <div class="form-group" v-if="showAssignOneUser">
-      <label>{{ $t('Assigned User') }}</label>
-      <div v-if="loadingUsers">{{ $t('Loading...') }}</div>
+      <label>{{ this.$t('Assigned User') }}</label>
+      <div v-if="loadingUsers">{{ this.$t('Loading...') }}</div>
       <select v-else class="form-control" :value="assignedUserGetter" @input="assignedUserSetter">
         <option></option>
         <option
           v-for="(row, index) in users"
           v-bind:value="row.id"
           :selected="row.id == assignedUserGetter"
-        >{{ $t(row.fullname)}}</option>
+        >{{ this.$t(row.fullname)}}</option>
       </select>
     </div>
 
     <div class="form-group" v-if="showAssignGroup">
-      <label>{{ $t('Assigned Group') }}</label>
-      <div v-if="loadingGroups">{{ $t('Loading...') }}</div>
+      <label>{{ this.$t('Assigned Group') }}</label>
+      <div v-if="loadingGroups">{{ this.$t('Loading...') }}</div>
       <select v-else class="form-control" :value="assignedGroupGetter" @input="assignedGroupSetter">
         <option></option>
         <option
           v-for="(row, index) in groups"
           v-bind:value="row.id"
           :selected="row.id == assignedGroupGetter"
-        >{{$t(row.name)}}</option>
+        >{{this.$t(row.name)}}</option>
       </select>
     </div>
 
@@ -64,60 +64,60 @@
     <div class="form-group">
 
       <div class="form-group special-assignment-header">
-          <label>{{ $t('Assign by Expression') }}</label>
+          <label>{{ this.$t('Assign by Expression') }}</label>
           <button
             type="button"
             @click="addingSpecialAssignment = true"
             class="float-right btn-special-assignment-action btn btn-secondary btn-sm"
             :class="{inactive: addingSpecialAssignment}"
-          ><i class="fa fa-plus"></i> {{ $t('Rule') }}</button>
+          ><i class="fa fa-plus"></i> {{ this.$t('Rule') }}</button>
       </div>
 
       <div class="special-assignment-wrapper" ref="specialAssignmentWrapper" @transitionend="transitionEnded">
         <div class="special-assignment-form">
           
           <div class="form-group">
-            <label>{{ $t('Expression') }}</label>
+            <label>{{ this.$t('Expression') }}</label>
             <input class="form-control" ref="specialAssignmentsInput" type="text" v-model="assignmentExpression">
           </div>
 
           <div class="form-group">
-            <label>{{ $t('Task Assignment') }}</label>
+            <label>{{ this.$t('Task Assignment') }}</label>
             <select
                     <select ref="specialAssignmentsDropDownList"
                             class="form-control"
                             v-model="typeAssignmentExpression"
                     >
                         <option value=""></option>
-                        <option value="requester">{{ $t('Requester') }}</option>
-                        <option value="user">{{ $t('User') }}</option>
-                        <option value="group">{{ $t('Group') }}</option>
+                        <option value="requester">{{ this.$t('Requester') }}</option>
+                        <option value="user">{{ this.$t('User') }}</option>
+                        <option value="group">{{ this.$t('Group') }}</option>
                     </select>
                 </div>
 
           <div class="form-group" v-if="showSpecialAssignOneUser">
-            <label>{{ $t('Assigned User') }}</label>
-            <div v-if="loadingUsers">{{ $t('Loading...') }}</div>
+            <label>{{ this.$t('Assigned User') }}</label>
+            <div v-if="loadingUsers">{{ this.$t('Loading...') }}</div>
             <select v-else class="form-control" v-model="userAssignmentExpression">
               <option></option>
               <option
                 v-for="(row, index) in users"
                 v-bind:value="row.id"
                 :selected="row.id == this.userAssignmentExpression"
-              >{{$t(row.fullname)}}</option>
+              >{{this.$t(row.fullname)}}</option>
             </select>
           </div>
 
           <div class="form-group" v-if="showSpecialAssignGroup">
-            <label>{{ $t('Assigned Group')}}</label>
-            <div v-if="loadingGroups">{{ $t('Loading...')}}</div>
+            <label>{{ this.$t('Assigned Group')}}</label>
+            <div v-if="loadingGroups">{{ this.$t('Loading...')}}</div>
             <select v-else class="form-control" v-model="groupAssignmentExpression">
               <option></option>
               <option
                 v-for="(row, index) in groups"
                 v-bind:value="row.id"
                 :selected="row.id == groupAssignmentExpression"
-              >{{ $t(row.name) }}</option>
+              >{{ this.$t(row.name) }}</option>
             </select>
           </div>
           
@@ -126,11 +126,11 @@
               type="button"
               @click="addingSpecialAssignment = false"
               class="btn-special-assignment-action btn-special-assignment-close btn btn-outline-secondary btn-sm"
-            >{{ $t('Cancel') }}</button><button
+            >{{ this.$t('Cancel') }}</button><button
               type="button"
               @click="saveSpecialAssignment"
               class="btn-special-assignment-action btn btn-secondary btn-sm"
-            >{{ $t('Save') }}</button>
+            >{{ this.$t('Save') }}</button>
           </div>
 
         </div>
@@ -143,12 +143,12 @@
       >
         <template>
           <div class="special-assignment-section">
-            <div class="special-assignment-value" :title="row.expression"><strong>{{$t(row.expression)}}</strong></div>
+            <div class="special-assignment-value" :title="row.expression"><strong>{{this.$t(row.expression)}}</strong></div>
             <div class="btn-special-assignment-delete" @click="removeSpecialAssignment(row)"><i class="fa fa-trash"></i></div>
           </div>
           <div class="special-assignment-section">
-            <div class="special-assignment-value">{{ $t('Assigned to') }}
-              <strong v-if="row.type == 'requester'">{{$t(row.type)}}</strong>
+            <div class="special-assignment-value">{{ this.$t('Assigned to') }}
+              <strong v-if="row.type == 'requester'">{{this.$t(row.type)}}</strong>
               <strong v-else>{{getAssigneeName(row)}}</strong>
             </div>
           </div>

@@ -4,16 +4,16 @@
             <nav class="navbar navbar-expand-md override">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" @click="mode = 'editor'" href="#">{{ $t('Editor') }}</a>
+                        <a class="nav-link" @click="mode = 'editor'" href="#">{{ this.$t('Editor') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" @click="mode = 'preview'" href="#">{{ $t('Preview') }}</a>
+                        <a class="nav-link" @click="mode = 'preview'" href="#">{{ this.$t('Preview') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" @click="openComputedProperties" href="#">{{ $t('Computed Properties') }}</a>
+                        <a class="nav-link" @click="openComputedProperties" href="#">{{ this.$t('Computed Properties') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" @click="openCustomCSS" href="#">{{ $t('Custom CSS') }}</a>
+                        <a class="nav-link" @click="openCustomCSS" href="#">{{ this.$t('Custom CSS') }}</a>
                     </li>
                 </ul>
 
@@ -48,12 +48,12 @@
         <div v-show="displayPreview" class="h-100" style="display: contents !important">
             <div id="preview"  class="d-flex h-100">
                 <div id="data-input" class="w-25 border overflow-auto">
-                    <div class="card-header">{{$t('Data Input')}}</div>
+                    <div class="card-header">{{this.$t('Data Input')}}</div>
                     <div class="card-body mb-5">
                         <div class="alert"
                              :class="{'alert-success': previewInputValid, 'alert-danger': !previewInputValid}">
-                            <span v-if="previewInputValid">{{$t('Valid JSON Data Object')}}</span>
-                            <span v-else>{{$t('Invalid JSON Data Object')}}</span>
+                            <span v-if="previewInputValid">{{this.$t('Valid JSON Data Object')}}</span>
+                            <span v-else>{{this.$t('Invalid JSON Data Object')}}</span>
                         </div>
                         <form-text-area rows="20" v-model="previewInput"></form-text-area>
                     </div>
@@ -77,7 +77,7 @@
                 </div>
 
                 <div id="data-preview" class="w-25 border overflow-auto">
-                    <div class="card-header">{{$t('Data Preview')}}</div>
+                    <div class="card-header">{{this.$t('Data Preview')}}</div>
                     <div class="card-body mb-5">
                         <vue-json-pretty :data="previewData"></vue-json-pretty>
                     </div>

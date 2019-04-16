@@ -12,14 +12,14 @@
     </div>
     <statusbar>
       <template slot="secondary">
-        {{$t('Last Saved:')}} {{lastSaved}}
+        {{this.$t('Last Saved:')}} {{lastSaved}}
       </template>
 
       <validation-status :validation-errors="validationErrors"/>
     </statusbar>
     <b-modal ref="uploadmodal" id="uploadmodal" centered :title="$t('Upload BPMN File')" :cancel-title="$t('Cancel')" :ok-title="$t('Ok')">
       <file-upload @input-file="handleUpload">
-        {{ $t('Upload file') }}
+        {{ this.$t('Upload file') }}
       </file-upload>
     </b-modal>
   </div>

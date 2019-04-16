@@ -1,50 +1,50 @@
 <template>
     <div>
         <div class="form-group">
-            <label>{{ $t('Task Notifications') }}</label>
+            <label>{{ this.$t('Task Notifications') }}</label>
             <div class="notification-settings-group">
-                <div class="notification-settings-header">{{ $t('Requester') }}</div>
+                <div class="notification-settings-header">{{ this.$t('Requester') }}</div>
                 <div class="custom-control custom-switch">
                     <input v-model="requesterAssigned" type="checkbox" class="custom-control-input" id="notify-requester-assigned">
-                    <label class="custom-control-label" for="notify-requester-assigned">{{ $t('Assigned') }}</label>
+                    <label class="custom-control-label" for="notify-requester-assigned">{{ this.$t('Assigned') }}</label>
                 </div>
                 <div class="custom-control custom-switch">
                     <input v-model="requesterCompleted"  type="checkbox" class="custom-control-input" id="notify-requester-completed">
-                    <label class="custom-control-label" for="notify-requester-completed">{{ $t('Completed') }}</label>
+                    <label class="custom-control-label" for="notify-requester-completed">{{ this.$t('Completed') }}</label>
                 </div>
                 <div class="custom-control custom-switch">
                     <input v-model="requesterDue"  type="checkbox" class="custom-control-input" id="notify-requester-due">
-                    <label class="custom-control-label" for="notify-requester-due">{{ $t('Due') }}</label>
+                    <label class="custom-control-label" for="notify-requester-due">{{ this.$t('Due') }}</label>
                 </div>
             </div>
             <div class="notification-settings-group">
-                <div class="notification-settings-header">{{ $t('Assignee') }}</div>
+                <div class="notification-settings-header">{{ this.$t('Assignee') }}</div>
                 <div class="custom-control custom-switch">
                     <input v-model="assigneeAssigned"  type="checkbox" class="custom-control-input" id="notify-assignee-assigned">
-                    <label class="custom-control-label" for="notify-assignee-assigned">{{ $t('Assigned') }}</label>
+                    <label class="custom-control-label" for="notify-assignee-assigned">{{ this.$t('Assigned') }}</label>
                 </div>
                 <div class="custom-control custom-switch">
                     <input v-model="assigneeCompleted"  type="checkbox" class="custom-control-input" id="notify-assignee-completed">
-                    <label class="custom-control-label" for="notify-assignee-completed">{{ $t('Completed') }}</label>
+                    <label class="custom-control-label" for="notify-assignee-completed">{{ this.$t('Completed') }}</label>
                 </div>
                 <div class="custom-control custom-switch">
                     <input v-model="assigneeDue"  type="checkbox" class="custom-control-input" id="notify-assignee-due">
-                    <label class="custom-control-label" for="notify-assignee-due">{{ $t('Due') }}</label>
+                    <label class="custom-control-label" for="notify-assignee-due">{{ this.$t('Due') }}</label>
                 </div>
             </div>
             <div class="notification-settings-group">
-                <div class="notification-settings-header">{{ $t('Participants') }}</div>
+                <div class="notification-settings-header">{{ this.$t('Participants') }}</div>
                 <div class="custom-control custom-switch">
                     <input v-model="participantsAssigned"  type="checkbox" class="custom-control-input" id="notify-participants-assigned">
-                    <label class="custom-control-label" for="notify-participants-assigned">{{ $t('Assigned') }}</label>
+                    <label class="custom-control-label" for="notify-participants-assigned">{{ this.$t('Assigned') }}</label>
                 </div>
                 <div class="custom-control custom-switch">
                     <input v-model="participantsCompleted"  type="checkbox" class="custom-control-input" id="notify-participants-completed">
-                    <label class="custom-control-label" for="notify-participants-completed">{{ $t('Completed') }}</label>
+                    <label class="custom-control-label" for="notify-participants-completed">{{ this.$t('Completed') }}</label>
                 </div>
                 <div class="custom-control custom-switch">
                     <input v-model="participantsDue"  type="checkbox" class="custom-control-input" id="notify-participants-due">
-                    <label class="custom-control-label" for="notify-participants-due">{{ $t('Due') }}</label>
+                    <label class="custom-control-label" for="notify-participants-due">{{ this.$t('Due') }}</label>
                 </div>
             </div>
             

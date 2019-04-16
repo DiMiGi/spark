@@ -1,7 +1,7 @@
 <template>
   <div class="form-group">
-    <label>{{ $t(label)}}</label>
-    <div v-if="loading">{{ $t('Loading...') }}</div>
+    <label>{{ this.$t(label)}}</label>
+    <div v-if="loading">{{ this.$t('Loading...') }}</div>
     <div v-else>
       <select class="form-control" @change="updateValue">
         <option value></option>
@@ -10,9 +10,9 @@
           :selected="screen.id == value"
           v-for="screen in screens"
           :key="screen.id"
-        >{{ $t(screen.title) }}</option>
+        >{{ this.$t(screen.title) }}</option>
       </select>
-      <a href="#" @click="load">{{ $t('Refresh') }}</a>
+      <a href="#" @click="load">{{ this.$t('Refresh') }}</a>
     </div>
   </div>
 </template>

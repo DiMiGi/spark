@@ -98,8 +98,8 @@
         </div>
       </form>
       <div slot="modal-footer" class="w-100" align="right">
-        <button type="button" class="btn btn-outline-secondary" @click="hideModal">{{$t('Cancel')}}</button>
-        <button type="button" @click="onSubmit" class="btn btn-secondary ml-2">{{$t('Save')}}</button>
+        <button type="button" class="btn btn-outline-secondary" @click="hideModal">{{this.$t('Cancel')}}</button>
+        <button type="button" @click="onSubmit" class="btn btn-secondary ml-2">{{this.$t('Save')}}</button>
       </div>
     </b-modal>
   </div>
@@ -181,7 +181,7 @@ export default {
       ProcessMaker.apiClient
         .put("scripts/" + this.dupScript.id + "/duplicate", this.dupScript)
         .then(response => {
-          ProcessMaker.alert($t('The script was duplicated.'), "success");
+          ProcessMaker.alert(this.$t('The script was duplicated.'), "success");
           this.hideModal();
           this.fetch();
         })
@@ -210,10 +210,10 @@ export default {
           break;
         case "remove-item":
           ProcessMaker.confirmModal(
-            $t("Caution!"),
-            $t("Are you sure you want to delete the script ") +
+            this.$t("Caution!"),
+            this.$t("Are you sure you want to delete the script ") +
               data.title +
-              $t("?"),
+              this.$t("?"),
             "",
             () => {
               this.$emit("delete", data);

@@ -2,7 +2,7 @@
     <div>
         <button id="navbar-request-button" class="btn btn-success btn-sm" @click="showRequestModal">
             <i class="fas fa-plus"></i>
-            {{$t('Request')}}
+            {{this.$t('Request')}}
         </button>
         <b-modal size="lg"
                  id="requests-modal"
@@ -21,7 +21,7 @@
                 </div>
             </span>
 
-            <p>{{ $t("We've made it easy for you to make the following Requests.") }}</p>
+            <p>{{ this.$t("We've made it easy for you to make the following Requests.") }}</p>
             <div v-if="Object.keys(processes).length && !loading" class="process-list p-4">
                 <div class="category" v-for="(category, index) in processes">
                     <h3 class="name">{{index}}</h3>
@@ -34,14 +34,14 @@
             </div>
 
             <div class="no-requests" v-if="!Object.keys(processes).length && !loading">
-                <h4>{{$t('You don\'t have any Processes.')}}</h4>
+                <h4>{{this.$t("You don't have any Processes.")}}</h4>
                 <span v-if="permission.includes('create-processes')">
-                    <a href="/processes">{{$t('Please visit the Processes page')}}</a>
-                    {{$t('and click on +Process to get started.')}}
+                    <a href="/processes">{{this.$t('Please visit the Processes page')}}</a>
+                    {{this.$t('and click on +Process to get started.')}}
                 </span>
-                <span v-else>{{$t('Please contact your administrator to get started.')}}</span>
+                <span v-else>{{this.$t('Please contact your administrator to get started.')}}</span>
             </div>
-            <div v-if="loading" class="loading">{{$t('Finding Requests available to you...')}}</div>
+            <div v-if="loading" class="loading">{{this.$t('Finding Requests available to you...')}}</div>
 
             <pagination :single="$t('Process')"
                         :plural="$t('Processes')"

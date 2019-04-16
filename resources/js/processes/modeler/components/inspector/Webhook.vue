@@ -1,15 +1,15 @@
 <template>
     <div class="form-group">
-        <label>{{ $t(label) }}</label>
+        <label>{{ this.$t(label) }}</label>
         <span class="float-right">
-            <a v-if="!enabled" href="#" @click="enable">{{ $t('Enable') }}</a>
-            <a v-if="enabled" href="#" @click="disable">{{ $t('Disable') }}</a>
+            <a v-if="!enabled" href="#" @click="enable">{{ this.$t('Enable') }}</a>
+            <a v-if="enabled" href="#" @click="disable">{{ this.$t('Disable') }}</a>
         </span>
         <div v-if="enabled">
-            <div v-if="loading">{{ $t('Loading...') }}</div>
+            <div v-if="loading">{{ this.$t('Loading...') }}</div>
             <div v-else>
                 <input class="form-control" :readonly="fieldDisabled" v-model="url" ref="webhookUrlInput" />
-                <a href="#" @click="copy">{{ $t('Copy To Clipboard') }}</a>
+                <a href="#" @click="copy">{{ this.$t('Copy To Clipboard') }}</a>
             </div>
         </div>
     </div>

@@ -71,7 +71,7 @@
         <b-modal ref="myModalRef" :title="$t('Duplicate Screen')" centered>
             <form>
                 <div class="form-group">
-                    <label for="title">{{$t('Name')}}</label>
+                    <label for="title">{{this.$t('Name')}}</label>
                     <input type="text"
                            class="form-control"
                            id="title"
@@ -80,19 +80,19 @@
                     <div class="invalid-feedback" v-if="errors.title">{{errors.title[0]}}</div>
                 </div>
                 <div class="form-group">
-                    <label for="type">{{$t('Type')}}</label>
+                    <label for="type">{{this.$t('Type')}}</label>
                     <select class="form-control" id="type" disabled>
                         <option>{{dupScreen.type}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="description">{{$t('Description')}}</label>
+                    <label for="description">{{this.$t('Description')}}</label>
                     <textarea class="form-control" id="description" rows="3" v-model="dupScreen.description"></textarea>
                 </div>
             </form>
             <div slot="modal-footer" class="w-100" align="right">
-                <button type="button" class="btn btn-outline-secondary" @click="hideModal">{{$t('Cancel')}}</button>
-                <button type="button" @click="onSubmit" class="btn btn-secondary ml-2">{{$t('Save')}}</button>
+                <button type="button" class="btn btn-outline-secondary" @click="hideModal">{{this.$t('Cancel')}}</button>
+                <button type="button" @click="onSubmit" class="btn btn-secondary ml-2">{{this.$t('Save')}}</button>
             </div>
         </b-modal>
     </div>
@@ -169,7 +169,7 @@
         ProcessMaker.apiClient
           .put("screens/" + this.dupScreen.id + "/duplicate", this.dupScreen)
           .then(response => {
-            ProcessMaker.alert($t('The screen was duplicated.'), "success");
+            ProcessMaker.alert(this.$t('The screen was duplicated.'), "success");
             this.hideModal();
             this.fetch();
           })
